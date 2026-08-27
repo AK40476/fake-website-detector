@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    Fake Website Detection System
+</div>
+
+<div class="container">
+    <h2>Analysis Result</h2>
+
+    <p><strong>URL:</strong> {{ url }}</p>
+    <h2>{{ score }}%</h2>
+
+    <div class="progress-bar">
+        <div class="progress" style="width: {{ score }}%;
+        {% if score < 30 %}
+            background: linear-gradient(90deg, #16a34a, #22c55e);
+            box-shadow: 0 0 10px rgba(34,197,94,0.6);
+        {% elif score < 70 %}
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            box-shadow: 0 0 10px rgba(245,158,11,0.6);
+        {% else %}
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            box-shadow: 0 0 10px rgba(220,38,38,0.6);
+        {% endif %}
+        ">
+        </div>
+    </div>
+
+    {% if level == "Safe" %}
+    <div class="badge badge-safe">SAFE</div>
+    {% elif "Suspicious" in level %}
+    <div class="badge badge-warning">SUSPICIOUS</div>
+    {% else %}
+    <div class="badge badge-danger">HIGH RISK</div>
+    {% endif %}
+
+    <h4>Reasons:</h4>
+    <ul>
+        {% for reason in reasons %}
+            <li>{{ reason }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Scan Another URL</a>
+</div>
+
+<footer>
+Cybersecurity Mini Project • Fake Website Detection System
+</footer>
+</body>
+</html>

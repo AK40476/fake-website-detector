@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Scan History</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+Fake Website Detection System
+</div>
+
+<div class="container">
+
+<h2>Scan History</h2>
+
+<table>
+<tr>
+<th>URL</th>
+<th>Score</th>
+<th>Level</th>
+<th>Timestamp</th>
+</tr>
+
+{% for entry in history %}
+<tr>
+<td>{{ entry.url }}</td>
+<td>{{ entry.score }}%</td>
+<td>
+{% if entry.level == "Safe" %}
+<span class="safe">{{ entry.level }}</span>
+{% elif "Suspicious" in entry.level %}
+<span class="suspicious">{{ entry.level }}</span>
+{% else %}
+<span class="danger">{{ entry.level }}</span>
+{% endif %}
+</td>
+<td>{{ entry.timestamp }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<a href="/">Back to Home</a>
+
+</div>
+
+<footer>
+Cybersecurity Mini Project • Fake Website Detection System
+</footer>
+
+</body>
+</html>

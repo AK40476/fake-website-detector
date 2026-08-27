@@ -1,0 +1,9 @@
+paypal
+amazon
+google
+facebook
+instagram
+bank
+netflix
+microsoft
+apple

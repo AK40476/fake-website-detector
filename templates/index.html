@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Website Detection System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    Fake Website Detection System
+</div>
+
+<div class="container center">
+    <h1>🔍 URL Risk Analyzer</h1>
+    <p style="color:#64748b; margin-bottom:20px;">
+    Detect phishing and malicious websites in real time
+    </p>
+    <p>Analyze websites for phishing and malicious behavior</p>
+    <form action="/analyze" method="post">
+        <input type="text" name="url" placeholder="Enter website URL" required>
+        <button type="submit">Analyze</button>
+    </form>
+    <br><br>
+    <form action="/history">
+    <button type="submit">View Scan History</button>
+    </form>
+</div>
+
+<footer>
+Cybersecurity Mini Project • Fake Website Detection System
+</footer>
+</body>
+</html>
